@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensure consistent sizing for all elements */
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+.dashboard-container {
+  display: flex;
+  height: 100vh; /* Occupies full viewport height */
+  overflow: hidden; /* Prevent content from creating a scroll */
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #343a40;
+  color: #ffffff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar h3 {
+  margin-bottom: 20px;
+  color: #f8f9fa;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 10px 0;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px;
+  color: #adb5bd;
+}
+
+.sidebar li:hover {
+  background-color: #495057;
+  color: #ffffff;
+}
+
+.logout-btn {
+  background-color: #dc3545;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #c82333;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f8f9fa;
+  overflow-y: auto; /* Allows scrolling only inside the content area if needed */
+}
+
+.venues-section h3,
+.register-form h3 {
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table th,
+table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+table th {
+  background-color: #f8f9fa;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.register-form {
+  margin-top: 20px;
+}
+
+.register-form div {
+  margin-bottom: 15px;
+}
+
+.register-form label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.register-form input,
+.register-form select,
+.register-form textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.register-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.register-form button:hover {
+  background-color: #0056b3;
+}

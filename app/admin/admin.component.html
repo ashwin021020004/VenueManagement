@@ -1,0 +1,69 @@
+<div class="dashboard-container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h3>Admin Dashboard</h3>
+    <ul>
+      <li (click)="viewSection('venues')">Available Venues</li>
+      <li (click)="viewSection('requests')">Requests</li>
+    </ul>
+    <div class="logout">
+      <button (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Available Venues Section -->
+    <div *ngIf="currentSection === 'venues'" class="venues-section">
+      <h3>Available Venues</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Venue Name</th>
+            <th>Seat Capacity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let venue of venues">
+            <td>{{ venue.name }}</td>
+            <td>{{ venue.capacity }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Booking Requests Section -->
+    <div *ngIf="currentSection === 'requests'" class="requests-section">
+      <h3>Booking Requests</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Venue</th>
+            <th>Time</th>
+            <th>Reason</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let request of bookingRequests">
+            <td>{{ request.rollNo }}</td>
+            <td>{{ request.name }}</td>
+            <td>{{ request.email }}</td>
+            <td>{{ request.contact }}</td>
+            <td>{{ request.venue }}</td>
+            <td>{{ request.time }}</td>
+            <td>{{ request.reason }}</td>
+            <td>
+              <button (click)="acceptRequest(request)">Accept</button>
+              <button (click)="rejectRequest(request)">Reject</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

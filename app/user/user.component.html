@@ -1,0 +1,77 @@
+<div class="dashboard-container">
+ 
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h3>Dashboard</h3>
+   
+    <ul>
+      <li (click)="showSection('venues')">Available Venues</li>
+      <li (click)="showSection('register')">Register Form for Venues</li>
+    </ul>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Available Venues Section -->
+    <div *ngIf="currentSection === 'venues'" class="venues-section">
+      <h3>Available Venues</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Venue Name</th>
+            <th>Seat Capacity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let venue of venues">
+            <td>{{ venue.name }}</td>
+            <td>{{ venue.capacity }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Register Form Section -->
+    <div *ngIf="currentSection === 'register'" class="register-form">
+      <h3>Book a Venue</h3>
+      <form (ngSubmit)="bookVenue()">
+        <div>
+          <label for="rollNo">Roll No:</label>
+          <input id="rollNo" type="text" [(ngModel)]="form.rollNo" name="rollNo" required />
+        </div>
+        <div>
+          <label for="name">Name:</label>
+          <input id="name" type="text" [(ngModel)]="form.name" name="name" required />
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input id="email" type="email" [(ngModel)]="form.email" name="email" required />
+        </div>
+        <div>
+          <label for="contact">Contact No:</label>
+          <input id="contact" type="text" [(ngModel)]="form.contact" name="contact" required />
+        </div>
+        <div>
+          <label for="venue">Venue:</label>
+          <select id="venue" [(ngModel)]="form.venue" name="venue" required>
+            <option *ngFor="let venue of venues" [value]="venue.name">{{ venue.name }}</option>
+          </select>
+        </div>
+        <div>
+          <label for="date">Date:</label>
+          <input id = "date" type="date" [(ngModel)] = "form.date" name = "date" required/>
+          </div>
+        <div>
+          <label for="time">Time Capacity:</label>
+          <input id="time" type="text" [(ngModel)]="form.time" name="time" required />
+        </div>
+        <div>
+          <label for="reason">Reason to Book:</label>
+          <textarea id="reason" [(ngModel)]="form.reason" name="reason" required></textarea>
+        </div>
+        <button type="submit">Book Venue</button>
+      </form>
+    </div>
+  </div>
+</div>
